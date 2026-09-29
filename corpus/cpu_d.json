@@ -1,0 +1,127 @@
+{
+  "status": "ok",
+  "name": "cpu_d",
+  "arm": "d",
+  "arm_description": "deterministic gather sampler, strict on",
+  "sampler": "gather",
+  "strict": true,
+  "seed": 0,
+  "repeat": 0,
+  "epochs": 2,
+  "epochs_completed": 2,
+  "batch": 2,
+  "accum": 2,
+  "effective_batch": 4,
+  "lr": 0.0001,
+  "weight_decay": 0.0001,
+  "imgsz": 160,
+  "resize": "square_640_direct",
+  "amp": false,
+  "init": "scratch",
+  "n_params": 40048848,
+  "train_images": 20,
+  "val_images": 8,
+  "optimizer_steps": 10,
+  "epoch_seconds": [
+    15.294272899627686,
+    11.962393999099731
+  ],
+  "seconds_per_epoch": 13.628333449363708,
+  "train_wall_seconds": 27.256758451461792,
+  "eval_seconds": 1.7700774669647217,
+  "mean_loss_per_epoch": [
+    18.64240131378174,
+    18.669773960113524
+  ],
+  "final_loss": 18.669773960113524,
+  "gpu_peak_mem_MB": null,
+  "mAP50": 0.0,
+  "mAP50_95": 0.0,
+  "mAP75": 0.0,
+  "by_size": {
+    "all": {
+      "mAP50": 0.0,
+      "mAP50_95": 0.0
+    },
+    "small": {
+      "mAP50": -1.0,
+      "mAP50_95": -1.0
+    },
+    "medium": {
+      "mAP50": -1.0,
+      "mAP50_95": -1.0
+    },
+    "large": {
+      "mAP50": -1.0,
+      "mAP50_95": -1.0
+    }
+  },
+  "n_detections": 800,
+  "n_gt": 871,
+  "weights_path": "/root/autodl-tmp/pr_exp/exp1/cputest/w/cpu_d.pt",
+  "weights_sha256": "0dfe3032404a64c8856e7811f4b0016e434ebafb9ffa094c756f34b9e66b9ebb",
+  "hash_method": "sha256(sorted param names + shapes + raw fp32 bytes)",
+  "grid_sample_calls_probe_forward": 48,
+  "grid_sample_calls_total": 1200,
+  "patch_installed": true,
+  "patched_modules": [
+    "torch.nn.functional.grid_sample (permanent)"
+  ],
+  "aliases_rebound": [],
+  "other_grid_sample_operators_left_alone": [
+    "torchvision.transforms._functional_tensor.grid_sample"
+  ],
+  "sampler_forward_maxdiff_vs_grid_sample": 6.288290023803711e-06,
+  "determinism": {
+    "strict_requested": true,
+    "cublas_workspace_config": ":4096:8",
+    "use_deterministic_algorithms": true,
+    "cudnn_deterministic": true,
+    "cudnn_benchmark": false,
+    "allow_tf32_matmul": false,
+    "allow_tf32_cudnn": false
+  },
+  "torch": "2.12.1+cu130",
+  "torchvision": "0.27.1+cu130",
+  "transformers": "5.17.0",
+  "hf_endpoint": "https://hf-mirror.com",
+  "cuda": "13.0",
+  "gpu": null,
+  "argv": [
+    "/root/autodl-tmp/pr_exp/exp1_deformable.py",
+    "--arm",
+    "d",
+    "--seed",
+    "0",
+    "--repeat",
+    "0",
+    "--epochs",
+    "2",
+    "--batch",
+    "2",
+    "--accum",
+    "2",
+    "--warmup-steps",
+    "2",
+    "--size",
+    "160",
+    "--workers",
+    "0",
+    "--limit-train",
+    "20",
+    "--limit-val",
+    "8",
+    "--data",
+    "/root/autodl-tmp/mw/VisDrone",
+    "--out",
+    "/root/autodl-tmp/pr_exp/exp1/cputest",
+    "--weights-dir",
+    "/root/autodl-tmp/pr_exp/exp1/cputest/w",
+    "--tag",
+    "cpu_d",
+    "--pretrained",
+    ""
+  ],
+  "timestamp": "2026-09-28 09:42:25",
+  "finished": true
+}
