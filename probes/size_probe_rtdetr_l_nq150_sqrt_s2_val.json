@@ -1,5 +1,5 @@
 {
-  "weights": "/lwz/mw/result_sdd/rtdetr_l_nq150_sqrt_s2/weights/best.pt",
+  "weights": "<REMOTE-ROOT>/mw/result_sdd/rtdetr_l_nq150_sqrt_s2/weights/best.pt",
   "imgsz": 640,
   "conf": 0.05,
   "split": "val",

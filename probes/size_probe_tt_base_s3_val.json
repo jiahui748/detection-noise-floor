@@ -1,5 +1,5 @@
 {
-  "weights": "/root/autodl-tmp/tt100k/result_sdd/tt_base_s3/weights/best.pt",
+  "weights": "<REMOTE-ROOT>/tt100k/result_sdd/tt_base_s3/weights/best.pt",
   "imgsz": 640,
   "conf": 0.05,
   "split": "val",

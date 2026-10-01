@@ -1,5 +1,5 @@
 {
-  "weights": "/root/autodl-tmp/mw/result_sdd/detsamp_s4/weights/best.pt",
+  "weights": "<REMOTE-ROOT>/mw/result_sdd/detsamp_s4/weights/best.pt",
   "imgsz": 640,
   "conf": 0.05,
   "split": "val",

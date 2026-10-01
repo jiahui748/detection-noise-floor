@@ -1,5 +1,5 @@
 {
-  "weights": "/root/autodl-tmp/mw/result_sdd/pn_c1_s0/weights/best.pt",
+  "weights": "<REMOTE-ROOT>/mw/result_sdd/pn_c1_s0/weights/best.pt",
   "imgsz": 640,
   "conf": 0.05,
   "split": "val",

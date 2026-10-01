@@ -1,5 +1,5 @@
 {
-  "weights": "/lwz/mw/result_visdrone/rtdetr-l_visdrone_4090/weights/best.pt",
+  "weights": "<REMOTE-ROOT>/mw/result_visdrone/rtdetr-l_visdrone_4090/weights/best.pt",
   "imgsz": 640,
   "conf": 0.25,
   "split": "val",
