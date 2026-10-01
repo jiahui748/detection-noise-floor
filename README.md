@@ -69,7 +69,8 @@ python analysis/make_exp2b_assets.py  # the dose-response table and figure
 python analysis/gen_survey_macros.py  # survey macros from corpus/survey_visdrone.csv
 ```
 
-The training harnesses in `harness/` are the ones actually used; their paths refer to a
+The scripts in `analysis/` read from the released data and regenerate the paper's tables and
+survey figures. The training harnesses in `harness/` are the ones actually used; their paths refer to a
 remote GPU box and a benchmark layout, so they are included as a record of the protocol
 rather than as a turnkey script.
 
