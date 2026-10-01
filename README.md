@@ -40,9 +40,9 @@ coordinates at the source rather than the indices.
 ## Reproducing the numbers
 
 ```
-python analysis/make_tables.py        # tables from probes/
+python analysis/make_tables.py        # tables from the probe results
 python analysis/make_exp2b_assets.py  # the dose-response table and figure
-python analysis/gen_survey_macros.py  # survey macros from corpus/survey_visdrone.csv
+python analysis/gen_survey_macros.py  # survey macros from the survey CSV
 ```
 
 The training harnesses in `harness/` are the ones actually used; their paths refer to a
