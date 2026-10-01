@@ -15,7 +15,15 @@ import re
 import statistics
 from pathlib import Path
 
-CSV = Path(__file__).resolve().parent / "survey_visdrone.csv"
+# The survey CSV ships in corpus/, which is the parent's sibling rather than this
+# script's own directory. Search the plausible locations so the script runs from a
+# fresh clone as well as from the manuscript workspace it was written in.
+_HERE = Path(__file__).resolve().parent
+CSV = next((c for c in (
+    _HERE / "survey_visdrone.csv",
+    _HERE.parent / "corpus" / "survey_visdrone.csv",
+    Path.cwd() / "corpus" / "survey_visdrone.csv",
+) if c.exists()), _HERE.parent / "corpus" / "survey_visdrone.csv")
 
 # The one row whose delta is produced by changing the input resolution
 # (640 -> 1280) rather than by the detector; excluded from the restricted set.
