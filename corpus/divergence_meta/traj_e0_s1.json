@@ -1,0 +1,26 @@
+{
+ "eps": 0.0,
+ "seed": 1,
+ "epochs": 3,
+ "wall_min": 15.91035927136739,
+ "injected_rel": 0.0,
+ "snaps": [
+  {
+   "epoch": 1,
+   "file": "ep1.pt"
+  },
+  {
+   "epoch": 2,
+   "file": "ep2.pt"
+  },
+  {
+   "epoch": 3,
+   "file": "ep3.pt"
+  },
+  {
+   "epoch": 3,
+   "file": "ep3.pt"
+  }
+ ],
+ "iters_per_epoch": 0
+}

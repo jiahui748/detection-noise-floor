@@ -1,0 +1,65 @@
+{
+  "weights": "/lwz/mw/result_visdrone/rtdetr-l_visdrone_4090/weights/best.pt",
+  "imgsz": 640,
+  "conf": 0.25,
+  "split": "val",
+  "images": 548,
+  "tag": "val640_best",
+  "by_size": {
+    "<8px": {
+      "n_gt": 6382,
+      "rec50": 0,
+      "rec70": 0,
+      "mean_best_iou": 0.0,
+      "n_pred": 161773,
+      "tp50": 0,
+      "med_conf_tp": null,
+      "med_conf_fp": 0.597248911857605,
+      "ap50": 0.0
+    },
+    "8-16px": {
+      "n_gt": 10947,
+      "rec50": 0,
+      "rec70": 0,
+      "mean_best_iou": 0.0,
+      "n_pred": 0,
+      "tp50": 0,
+      "med_conf_tp": null,
+      "med_conf_fp": null,
+      "ap50": 0.0
+    },
+    "16-32px": {
+      "n_gt": 13440,
+      "rec50": 0,
+      "rec70": 0,
+      "mean_best_iou": 0.0,
+      "n_pred": 0,
+      "tp50": 0,
+      "med_conf_tp": null,
+      "med_conf_fp": null,
+      "ap50": 0.0
+    },
+    "32-64px": {
+      "n_gt": 6104,
+      "rec50": 0,
+      "rec70": 0,
+      "mean_best_iou": 0.0,
+      "n_pred": 0,
+      "tp50": 0,
+      "med_conf_tp": null,
+      "med_conf_fp": null,
+      "ap50": 0.0
+    },
+    ">64px": {
+      "n_gt": 1886,
+      "rec50": 0,
+      "rec70": 0,
+      "mean_best_iou": 0.0,
+      "n_pred": 0,
+      "tp50": 0,
+      "med_conf_tp": null,
+      "med_conf_fp": null,
+      "ap50": 0.0
+    }
+  }
+}

@@ -14,11 +14,35 @@ a deterministic replacement.
 ## Layout
 
 ```
+corpus/       measurement corpora and derived quantities
+probes/       90 per-run probe results: the raw measurements behind the tables
 samplers/     the deterministic sampling operators (see samplers/README.md)
-harness/      every training script and launcher that produced the results
-analysis/     the scripts that turn the measurements into the tables and figures,
+harness/      every training script and launcher that produced the corpora
+analysis/     the scripts that turn probes into the paper's tables and figures,
               plus the checks that verify the numbers in the manuscript
+notes/        the pre-registration, and the notes from the second-architecture run
 ```
+
+## Where each paper artefact comes from
+
+| Paper artefact | File in this repository |
+|---|---|
+| Table 1, per-size noise floor | `probes/size_probe_*.json` (90 runs), reduced by `analysis/make_tables.py` |
+| Table A1, the measurement corpus | `probes/` for the enumerated runs |
+| Table 12 / Figure 1, full-detector perturbation dose response | `corpus/divergence.csv`, `corpus/divergence_meta/` |
+| Section 6.3, the early transient rate (1.18-1.21 per step) | `corpus/intra_reduced.json` |
+| Section 6.1, operator noise on real activations | `corpus/realact.json` |
+| Table 2 and the survey figures | `corpus/survey_visdrone.csv` (the survey; `survey_report.md` is the write-up) |
+| Section 5.4, the Deformable-DETR replication | `corpus/exp1_*.json`, `corpus/exp1_sigma.json` |
+| The sampler of Section 7 | `samplers/det_deform_attn.py` |
+
+## A note on the survey file
+
+`corpus/survey_visdrone.csv` holds **one row per (paper x metric family)**, not one row
+per paper: seven of the fifteen papers contribute a row to each of two metric families,
+so the file has 22 rows for 15 papers. Paper counts must be obtained by grouping.
+`analysis/gen_survey_macros.py` does this and the paper draws every survey figure from
+its output, so the manuscript and this file cannot drift apart.
 
 ## The sampler
 
@@ -40,9 +64,9 @@ coordinates at the source rather than the indices.
 ## Reproducing the numbers
 
 ```
-python analysis/make_tables.py        # tables from the probe results
+python analysis/make_tables.py        # tables from probes/
 python analysis/make_exp2b_assets.py  # the dose-response table and figure
-python analysis/gen_survey_macros.py  # survey macros from the survey CSV
+python analysis/gen_survey_macros.py  # survey macros from corpus/survey_visdrone.csv
 ```
 
 The training harnesses in `harness/` are the ones actually used; their paths refer to a
@@ -51,9 +75,10 @@ rather than as a turnkey script.
 
 ## License
 
-MIT (see `LICENSE`).
+Code under `samplers/`, `harness/` and `analysis/`: MIT (see `LICENSE`).
+Data under `corpus/` and `probes/`: CC BY 4.0 (see `LICENSE-DATA`).
 
 ## Citation
 
-If you use the sampler, please cite the paper. A DOI will be added here
+If you use the corpus or the sampler, please cite the paper. A DOI will be added here
 once the release is archived.
