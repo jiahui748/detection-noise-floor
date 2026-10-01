@@ -14,11 +14,13 @@ a deterministic replacement.
 ## Layout
 
 ```
-corpus/       the measurement corpora and derived quantities
+corpus/       measurement corpora and derived quantities
 probes/       90 per-run probe results: the raw measurements behind the tables
-samplers/     the deterministic gather sampler
-harness/      the training scripts that produced the corpora
-analysis/     the scripts that turn probes into the paper's tables and figures
+samplers/     the deterministic sampling operators (see samplers/README.md)
+harness/      every training script and launcher that produced the corpora
+analysis/     the scripts that turn probes into the paper's tables and figures,
+              plus the checks that verify the numbers in the manuscript
+notes/        the pre-registration, and the notes from the second-architecture run
 ```
 
 ## Where each paper artefact comes from
@@ -43,6 +45,10 @@ so the file has 22 rows for 15 papers. Paper counts must be obtained by grouping
 its output, so the manuscript and this file cannot drift apart.
 
 ## The sampler
+
+See `samplers/README.md` for the full account. In short:
+
+
 
 `samplers/det_deform_attn.py` replaces `F.grid_sample` with a gather-based bilinear
 sampler that has a deterministic backward pass. It is a drop-in replacement and is legal

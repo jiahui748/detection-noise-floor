@@ -28,8 +28,8 @@ import argparse
 import sys
 import time
 
-sys.path.insert(0, '/root/autodl-tmp/mw')
-sys.path.insert(0, '/root/autodl-tmp')
+sys.path.insert(0, '<REMOTE-ROOT>/mw')
+sys.path.insert(0, '<REMOTE-ROOT>')
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--eps', type=float, default=0.0)
@@ -39,8 +39,8 @@ ap.add_argument('--batch', type=int, default=8)
 ap.add_argument('--workers', type=int, default=8)
 ap.add_argument('--imgsz', type=int, default=640)
 ap.add_argument('--name', required=True)
-ap.add_argument('--data', default='/lwz/mw/VisDrone/VisDrone.yaml')
-ap.add_argument('--project', default='/lwz/mw/pr_exp/result')
+ap.add_argument('--data', default='<REMOTE-ROOT>/mw/VisDrone/VisDrone.yaml')
+ap.add_argument('--project', default='<REMOTE-ROOT>/mw/pr_exp/result')
 ap.add_argument('--perturb-seed', type=int, default=20260927)
 a = ap.parse_args()
 
@@ -65,7 +65,7 @@ apply_deterministic_deform_attn(verbose=True)
 
 from ultralytics import RTDETR
 
-model = RTDETR('/lwz/mw/RTDETR-main/RTDETR-main/weights/rtdetr-l.pt')
+model = RTDETR('<REMOTE-ROOT>/mw/RTDETR-main/RTDETR-main/weights/rtdetr-l.pt')
 
 EPS = float(a.eps)
 PSEED = int(a.perturb_seed)

@@ -27,15 +27,15 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 
-sys.path.insert(0, '/root/autodl-tmp/mw')
-sys.path.insert(0, '/root/autodl-tmp')
+sys.path.insert(0, '<REMOTE-ROOT>/mw')
+sys.path.insert(0, '<REMOTE-ROOT>')
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--batch', type=int, default=8)
 ap.add_argument('--reps', type=int, default=8)
 ap.add_argument('--limit', type=int, default=40)
-ap.add_argument('--ckpt', default='/lwz/mw/result_sdd/pn_base_s0/weights/best.pt')
-ap.add_argument('--out', default='/lwz/mw/pr_exp/realact.json')
+ap.add_argument('--ckpt', default='<REMOTE-ROOT>/mw/result_sdd/pn_base_s0/weights/best.pt')
+ap.add_argument('--out', default='<REMOTE-ROOT>/mw/pr_exp/realact.json')
 a = ap.parse_args()
 
 DEV = 'cuda'
@@ -65,7 +65,7 @@ model = RTDETR(a.ckpt)
 net = model.model.to(DEV).eval()
 print('[2a] model loaded', flush=True)
 
-files = sorted(glob.glob('/lwz/mw/VisDrone/images/val/*.jpg'))[: a.batch]
+files = sorted(glob.glob('<REMOTE-ROOT>/mw/VisDrone/images/val/*.jpg'))[: a.batch]
 ims = []
 for p in files:
     import cv2
@@ -115,7 +115,7 @@ for i, (v, g) in enumerate(captured):
     print(f'[2a] shape {tuple(v.shape)} grid {tuple(g.shape)} points={rows[-1]["points"]} '
           f'grid_sd={sa:.3e} rel={sa/max(scale,1e-12):.3e} ours_sd={sb:.3e}', flush=True)
 
-synth = json.load(open('/root/autodl-tmp/figdata/gradnoise.json'))
+synth = json.load(open('<REMOTE-ROOT>/figdata/gradnoise.json'))
 json.dump({'real': rows, 'synthetic_reference': synth['A'], 'c_core_synthetic': synth['C'],
            'n_captured': len(captured), 'patched_modules': patched},
           open(a.out, 'w'), indent=1)

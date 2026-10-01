@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env bash
+#!/usr/bin/env bash
 # Experiment 1 -- grid over the deformable-attention sampler x strictness arms, on a SECOND
 # architecture (HF DeformableDetrForObjectDetection, transformers 5.17.0) against
 # VisDrone2019-DET at 640 px.
@@ -32,10 +32,10 @@
 # Usage on the box (detached; STOP_AT refuses to start a run that cannot finish before the
 # server's auto-shutdown):
 #   RUN_REPS_D=2 RUN_STOP_AT="2026-09-29 05:15" \
-#   setsid bash /root/autodl-tmp/pr_exp/run_exp1.sh \
-#       > /root/autodl-tmp/pr_exp/exp1/logs/grid.out 2>&1 < /dev/null &
+#   setsid bash <REMOTE-ROOT>/pr_exp/run_exp1.sh \
+#       > <REMOTE-ROOT>/pr_exp/exp1/logs/grid.out 2>&1 < /dev/null &
 set -u
-ROOT=/root/autodl-tmp
+ROOT=<REMOTE-ROOT>
 PY=$ROOT/envs/mw/bin/python
 PR=$ROOT/pr_exp
 BASE=$PR/exp1

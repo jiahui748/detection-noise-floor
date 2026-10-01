@@ -39,7 +39,7 @@ def clean(v):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--result", default="/root/autodl-tmp/pr_exp/exp1/result")
+    ap.add_argument("--result", default="<REMOTE-ROOT>/pr_exp/exp1/result")
     ap.add_argument("--json-out", default=None)
     args = ap.parse_args()
 

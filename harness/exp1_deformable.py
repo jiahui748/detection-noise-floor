@@ -22,7 +22,7 @@ VERIFICATION BUILT IN
 
 USAGE
     python exp1_deformable.py --arm a --seed 0 --repeat 0 --epochs 10 \
-        --data /root/autodl-tmp/mw/VisDrone --out /root/autodl-tmp/pr_exp/exp1/result
+        --data <REMOTE-ROOT>/mw/VisDrone --out <REMOTE-ROOT>/pr_exp/exp1/result
 """
 from __future__ import annotations
 
@@ -509,9 +509,9 @@ def main():
     ap.add_argument("--workers", type=int, default=8)
     ap.add_argument("--limit-train", type=int, default=0, help="0 = all")
     ap.add_argument("--limit-val", type=int, default=0, help="0 = all")
-    ap.add_argument("--data", default="/root/autodl-tmp/mw/VisDrone")
-    ap.add_argument("--out", default="/root/autodl-tmp/pr_exp/exp1/result")
-    ap.add_argument("--weights-dir", default="/root/autodl-tmp/pr_exp/exp1/weights")
+    ap.add_argument("--data", default="<REMOTE-ROOT>/mw/VisDrone")
+    ap.add_argument("--out", default="<REMOTE-ROOT>/pr_exp/exp1/result")
+    ap.add_argument("--weights-dir", default="<REMOTE-ROOT>/pr_exp/exp1/weights")
     ap.add_argument("--pretrained", default="SenseTime/deformable-detr")
     ap.add_argument("--no-pretrained", action="store_true")
     ap.add_argument("--no-lr-scale", action="store_true",
@@ -553,7 +553,7 @@ def main():
         log("WARNING: CUDA unavailable, running on CPU")
 
     # --- the sampler switch -----------------------------------------------------------
-    sys.path.insert(0, "/root/autodl-tmp/mw")
+    sys.path.insert(0, "<REMOTE-ROOT>/mw")
     from det_deform_attn import det_grid_sample_bilinear  # noqa: E402
 
     patcher = GridSamplePatcher(det_grid_sample_bilinear)
@@ -854,7 +854,7 @@ if __name__ == "__main__":
         import traceback
         traceback.print_exc()
         try:
-            out = Path("/root/autodl-tmp/pr_exp/exp1/result")
+            out = Path("<REMOTE-ROOT>/pr_exp/exp1/result")
             out.mkdir(parents=True, exist_ok=True)
             (out / "_last_error.json").write_text(json.dumps(
                 {"status": "error", "error": f"{type(exc).__name__}: {exc}",

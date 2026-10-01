@@ -3,8 +3,8 @@
 #
 # Why this file exists rather than an edit to run_grid.sh:
 #   run_grid.sh checks for completion at $ROOT/pr_exp/snap/$name/meta.json, but the
-#   runs write to $ROOT/mw/pr_exp/snap/$name/meta.json -- /lwz is a symlink to
-#   /root/autodl-tmp, so the script's default --snapdir of /lwz/mw/pr_exp/snap
+#   runs write to $ROOT/mw/pr_exp/snap/$name/meta.json -- <REMOTE-ROOT> is a symlink to
+#   <REMOTE-ROOT>, so the script's default --snapdir of <REMOTE-ROOT>/mw/pr_exp/snap
 #   resolves under .../mw/. The original guard therefore never fires and a restart
 #   would redo runs that are already complete.
 #   The running script must not be edited in place: bash reads a script
@@ -13,7 +13,7 @@
 # A run is considered complete when its meta.json exists; meta.json is written after
 # all snapshot epochs, so a run interrupted part-way is simply redone.
 set -u
-ROOT=/root/autodl-tmp
+ROOT=<REMOTE-ROOT>
 PY=$ROOT/envs/mw/bin/python
 SNAPROOT=$ROOT/mw/pr_exp/snap          # <- corrected path
 LOG=$ROOT/mw/pr_exp/logs/grid_resume.log

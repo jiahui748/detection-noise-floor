@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Full-model perturbation dose response: figure and table, from the local grid results.
 
 Source: pr_exp/results/divergence.csv (15 runs x 3 epochs), produced by the

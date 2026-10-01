@@ -27,8 +27,8 @@ import os
 import re
 import sys
 
-SNAP = '/root/autodl-tmp/pr_exp/snap'
-LOG = '/root/autodl-tmp/pr_exp/logs/grid.log'
+SNAP = '<REMOTE-ROOT>/pr_exp/snap'
+LOG = '<REMOTE-ROOT>/pr_exp/logs/grid.log'
 ITERS_PER_EPOCH = 809
 
 
@@ -145,8 +145,8 @@ def main():
             print(f'  seed {s}: n={len(vals)} mean={st.mean(vals):.4f} '
                   f'sd={st.stdev(vals):.5f} range={max(vals)-min(vals):.5f}')
     json.dump({str(k): {str(e): v for e, v in r.items()} for k, r in report.items()},
-              open('/root/autodl-tmp/pr_exp/divergence.json', 'w'), indent=1)
-    print('\nwrote /root/autodl-tmp/pr_exp/divergence.json')
+              open('<REMOTE-ROOT>/pr_exp/divergence.json', 'w'), indent=1)
+    print('\nwrote <REMOTE-ROOT>/pr_exp/divergence.json')
 
 
 if __name__ == '__main__':

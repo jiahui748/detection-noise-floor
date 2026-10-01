@@ -6,7 +6,7 @@
 # supply the across-seed spread. Any run whose meta.json already exists is skipped,
 # so the grid is resumable if the card goes away.
 set -u
-ROOT=/root/autodl-tmp
+ROOT=<REMOTE-ROOT>
 PY=$ROOT/envs/mw/bin/python
 LOG=$ROOT/pr_exp/logs/grid.log
 mkdir -p "$ROOT/pr_exp/logs" "$ROOT/pr_exp/result" "$ROOT/pr_exp/snap"
