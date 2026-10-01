@@ -83,3 +83,23 @@ Data under `corpus/` and `probes/`: CC BY 4.0 (see `LICENSE-DATA`).
 
 If you use the corpus or the sampler, please cite the paper. A DOI will be added here
 once the release is archived.
+
+## A note on the analysis scripts
+
+The scripts in `analysis/` are the ones that produced the manuscript's tables and
+figures, so they write **into the manuscript's directory tree** (`paper_PR/tables/`,
+`paper_PR/figures/`) rather than next to themselves. If you run them outside that
+tree, create the target directory first or edit the `OUT` constant near the top of
+each script:
+
+```
+python analysis/gen_survey_macros.py    # rewrites the survey macro block of paper_PR/paper_PR.tex
+python analysis/make_tables.py          # writes paper_PR/tables/*.tex
+python analysis/make_figures.py         # writes paper_PR/figures/*.pdf
+python analysis/make_exp2b_assets.py    # writes the dose-response table and figure
+python analysis/recompute_survey_authoritative.py   # recomputes the survey statistics
+```
+
+`recompute_survey_authoritative.py` is the one to run first if you want to check the
+survey numbers: it reads `corpus/survey_visdrone.csv` and prints the family medians,
+means and the reporting-practice census without touching any other file.
